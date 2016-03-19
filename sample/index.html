@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <base href="/Test1/" />
-
     <script src="system.src.js"></script>
     <script src="system.hash.js"></script>
+
     <script>
         System.config({
             defaultJSExtensions: true
         });
 
-        System.import("src/module2");
+        System.import("src/module3");
     </script>
 </head>
 <body id="body">
+    <h1>SystemJS Cache Buster Sample App</h1>
+    <p>
+        This sample application uses SystemJS and loads some modules. The lowest level module writes some output to the page <br>
+        Without the cache buster you change module1 output, refresh the browser but new data is not presented
+    </p>
 
+    <span id="data"></span>
 </body>
 </html>

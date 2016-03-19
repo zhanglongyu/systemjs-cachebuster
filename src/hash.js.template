@@ -11,6 +11,12 @@
         if (baseTag.length) {
             baseUrl = baseTag[0].href;
         }
+        else {
+            baseUrl = location.origin;
+            if(baseUrl[baseUrl.length-1]!="/") {
+                baseUrl += "/";
+            }
+        }
     }
 
     function patchSystemLocate() {
