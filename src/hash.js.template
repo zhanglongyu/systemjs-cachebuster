@@ -1,0 +1,43 @@
+(function() {
+    var systemLocate = System.locate;
+    var hashes = ##hashes##;
+    var baseUrl = "";
+
+    initBaseUrl();
+    patchSystemLocate();
+
+    function initBaseUrl() {
+        var baseTag = document.getElementsByTagName("base");
+        if (baseTag.length) {
+            baseUrl = baseTag[0].href;
+        }
+    }
+
+    function patchSystemLocate() {
+        System.locate = function (load) {
+            return systemLocate.call(this, load).then(function (address) {
+                var url = address;
+
+                var relUrl = (startsWith(url, baseUrl) ? relUrl = url.substring(baseUrl.length) : url);
+                var entry = hashes[relUrl];
+
+                if (entry) {
+                    var cacheBuster = "?hash=" + entry.hash
+                    url = url + cacheBuster;
+                }
+
+                console.log("System.locate: " + url);
+                return url;
+            });
+        }
+    }
+
+    function startsWith(str1, str2) {
+        if (str2.length > str1.length) {
+            return false;
+        }
+
+        var res = (str1.substring(0, str2.length) == str2);
+        return res;
+    }
+})();

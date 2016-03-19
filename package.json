@@ -1,0 +1,29 @@
+{
+  "name": "systemjs-cachebuster",
+  "version": "1.0.0",
+  "description": "Patches SystemJS loader with a cache buster query string",
+  "main": "src/FileHashIndex.js",
+  "dependencies": {
+    "crypto": "^0.0.3",
+    "upath": "^0.1.7"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oricalvo/systemjs-cachebuster.git"
+  },
+  "keywords": [
+    "SystemJS",
+    "caching"
+  ],
+  "author": "Ori Calvo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oricalvo/systemjs-cachebuster/issues"
+  },
+  "homepage": "https://github.com/oricalvo/systemjs-cachebuster#readme"
+}
