@@ -4,7 +4,7 @@ var path = require("path");
 var upath = require("upath");
 var stream = require("stream");
 
-function FileHashIndex (options) {
+function SystemJSCacheBuster (options) {
     options = options || {};
 
     var outputFileName = options.output || "system.cachebuster.json";
@@ -13,7 +13,7 @@ function FileHashIndex (options) {
     this.hashes = {};
 }
 
-FileHashIndex.prototype.full = function() {
+SystemJSCacheBuster.prototype.full = function() {
     var me = this;
     
     var writable = new FileHashTransform(me);
@@ -24,7 +24,7 @@ FileHashIndex.prototype.full = function() {
     return writable;
 }
 
-FileHashIndex.prototype.incremental = function() {
+SystemJSCacheBuster.prototype.incremental = function() {
     var me = this;
 
     var writable = new FileHashTransform(me, true);
@@ -32,7 +32,7 @@ FileHashIndex.prototype.incremental = function() {
     return writable;
 }
 
-FileHashIndex.prototype._processFile = function (file) {
+SystemJSCacheBuster.prototype._processFile = function (file) {
     var hash = crypto.createHash('sha1').update(file._contents).digest('hex');
 
     var relFilePath = upath.normalize(path.relative(this.baseDir, file.path));
@@ -44,7 +44,7 @@ FileHashIndex.prototype._processFile = function (file) {
     console.log("Updating hash: " + relFilePath + " --> " + hash);
 }
 
-FileHashIndex.prototype._flushIndex = function() {
+SystemJSCacheBuster.prototype._flushIndex = function() {
     console.log("Writing summary file: " + this.outputFilePath);
     
     fs.writeFileSync(this.outputFilePath, JSON.stringify(this.hashes));
@@ -75,4 +75,4 @@ FileHashTransform.prototype._transform  = function (file, encoding, callback) {
     callback();
 }
 
-module.exports = FileHashIndex;
+module.exports = SystemJSCacheBuster;

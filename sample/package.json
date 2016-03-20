@@ -8,7 +8,7 @@
     "gulp": "^3.9.1",
     "gulp-watch": "^4.3.5",
     "systemjs": "^0.19.24",
-    "systemjs-cachebuster": "^1.0.7"
+    "systemjs-cachebuster": "^1.0.8"
   },
   "devDependencies": {},
   "scripts": {

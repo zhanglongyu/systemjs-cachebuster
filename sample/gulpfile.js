@@ -1,16 +1,16 @@
 var gulp = require("gulp");
-var FileHashIndex = require("systemjs-cachebuster");
+var SystemJSCacheBuster = require("systemjs-cachebuster");
 var watch = require("gulp-watch");
 
 var files = "src/**/*.js";
-var fileHashIndex = new FileHashIndex();
+var cacheBuster = new SystemJSCacheBuster();
 
 gulp.task('watch', function () {
     return gulp
         .src(files)
-        .pipe(fileHashIndex.full())
+        .pipe(cacheBuster.full())
         .pipe(watch(files))
-        .pipe(fileHashIndex.incremental());
+        .pipe(cacheBuster.incremental());
 });
 
 gulp.task('prep', function () {
