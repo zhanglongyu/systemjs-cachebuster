@@ -16,11 +16,32 @@
     </script>
 </head>
 <body id="body">
-    <h1>SystemJS Cache Buster Sample App</h1>
-    <p>
-        This sample application uses SystemJS and loads some modules. The lowest level module writes some output to the page <br>
-        Without the cache buster you change module1 output, refresh the browser but new data is not presented
-    </p>
+    <h1>systemjs-cachebuster Plugin Sample App</h1>
+    <h2>
+        This sample application deomnstrate the caching problem with SystemJS and the way you solve that with the systemjs-cachebuster plugin
+    </h2>
+
+    <ol>
+        <li>
+            Open src/module1.js and change the innerHTML value
+        </li>
+
+        <li>
+            Refresh the browser. You should not see the new value
+        </li>
+
+        <li>
+            Execute "gulp watch" and refresh the browser again
+        </li>
+
+        <li>
+            Now you should the value
+        </li>
+
+        <li>
+            Open browser's dev tools and at the network tab. The systemjs-cahcebuster plugin effects SystemJS XHR requests
+        </li>
+    </ol>
 
     <span id="data"></span>
 </body>
