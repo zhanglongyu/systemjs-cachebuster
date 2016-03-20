@@ -13,7 +13,7 @@ gulp.task('watch', function () {
         .pipe(cacheBuster.incremental());
 });
 
-gulp.task('prep', function () {
+gulp.task('postinstall', function () {
     return gulp
         .src([
             "node_modules/systemjs/dist/system.src.js", 

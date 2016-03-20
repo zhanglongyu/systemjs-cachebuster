@@ -1,2 +1,2 @@
-document.getElementById("data").innerHTML = "CHANGE ME 3";
+document.getElementById("data").innerHTML = "[CHANGE ME]";
 

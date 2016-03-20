@@ -10,11 +10,11 @@
     "open": "0.0.5",
     "shelljs": "^0.6.0",
     "systemjs": "^0.19.24",
-    "systemjs-cachebuster": "^1.0.8"
+    "systemjs-cachebuster": "^1.0.10"
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "gulp dev && ws"
+    "postinstall": "node postinstall.js"
   },
   "repository": {},
   "author": "Ori Calvo",

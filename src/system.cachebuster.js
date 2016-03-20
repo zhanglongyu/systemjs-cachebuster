@@ -40,9 +40,12 @@
             oReq.open("GET", url);
             oReq.send();
             oReq.addEventListener("load", function () {
-                hashTable = JSON.parse(this.responseText);
-
-                dumpTable();
+                if(this.status == 200) {
+                    hashTable = JSON.parse(this.responseText);
+                }
+                else {
+                    hashTable = {};
+                }
 
                 resolve();
             });
