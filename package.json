@@ -1,8 +1,8 @@
 {
   "name": "systemjs-cachebuster",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "Patches SystemJS loader with a cache buster query string",
-  "main": "src/FileHashIndex.js",
+  "main": "src/system.cachebuster.gulp.js",
   "dependencies": {
     "crypto": "^0.0.3",
     "upath": "^0.1.7"

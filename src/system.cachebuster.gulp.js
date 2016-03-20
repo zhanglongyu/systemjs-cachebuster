@@ -6,13 +6,14 @@ var stream = require("stream");
 
 function FileHashIndex (options) {
     options = options || {};
-    
-    this.outputFileName = options.output || "system.hash.js";
+
+    var outputFileName = options.output || "system.cachebuster.json";
+    this.outputFilePath = path.join(process.cwd(), outputFileName);
     this.baseDir = options.baseDir || process.cwd();
     this.hashes = {};
 }
 
-FileHashIndex.prototype.onInit = function() {
+FileHashIndex.prototype.full = function() {
     var me = this;
     
     var writable = new FileHashTransform(me);
@@ -23,7 +24,7 @@ FileHashIndex.prototype.onInit = function() {
     return writable;
 }
 
-FileHashIndex.prototype.onChange = function() {
+FileHashIndex.prototype.incremental = function() {
     var me = this;
 
     var writable = new FileHashTransform(me, true);
@@ -44,13 +45,9 @@ FileHashIndex.prototype._processFile = function (file) {
 }
 
 FileHashIndex.prototype._flushIndex = function() {
-    console.log("Writing summary file: " + this.outputFileName);
-
-    var templateFileNPath = path.normalize(path.join(__dirname, "./hash.js.template"));
-    var template = fs.readFileSync(templateFileNPath, "utf8");
-    var content = template.replace("##hashes##",JSON.stringify(this.hashes));
-
-    fs.writeFileSync(this.outputFileName, content);
+    console.log("Writing summary file: " + this.outputFilePath);
+    
+    fs.writeFileSync(this.outputFilePath, JSON.stringify(this.hashes));
 }
 
 function FileHashTransform (index, flushIndex) {
