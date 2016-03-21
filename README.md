@@ -3,7 +3,7 @@
 Most developers use DevTools and disable cache during development. For a large scale SPA application this might be too expensive. Refreshing the browser becomes slower.
 systemjs-cachebuster patches SystemJS loader with hash values of each module thus enforce the browser to reload only the modules that were changed.
 
-Once our application is smart enough to load only modules that were changed we can re-enable the browser cache and re-enjoy the performance boost of client side caching. 
+Once our application is smart enough to load only modules that were changed, we can re-enable the browser cache and re-enjoy the performance boost of client side caching. 
 Please note that you will probably need to configure your local web server with aggressive cache-control configuration 
 
 ## Installation
@@ -55,6 +55,9 @@ Add **system.cachebuster.js** into your HTML. This file patches SystemJS loader 
 </body>
 </html>
 ```
+
+Ensure your web server is configured with aggressive caching configuration, change a JavaScript file and refresh the browser while DevTools is closed. 
+The browser should load the latest modified version 
 
 ## License
 
