@@ -30,7 +30,8 @@ gulp.task('watch', function () {
 });
 ```
 
-In addition you must add **system.cachebuster.js** into your HTML. This file patches SystemJS loader so each module is loaded with the hash value calculated by the gulp task.
+Once executing the gulp task a file named **system.cachebuster.json** is created. The file contains all calculated hash values (for each file) is used later by **system.cachebuster.js**  
+Add **system.cachebuster.js** into your HTML. This file patches SystemJS loader so each module is loaded with the hash value.
 
  ```html
 <!DOCTYPE html>
