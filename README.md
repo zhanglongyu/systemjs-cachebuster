@@ -5,7 +5,9 @@ systemjs-cachebuster patches SystemJS loader with hash values of each module thu
 
 ## Installation
 
-**npm install systemjs-cachebuster**
+```
+npm install systemjs-cachebuster
+```
 
 Then, you should configure your gulpfile to create a central hash file for all modules. Currently, we only support gulp.
 
