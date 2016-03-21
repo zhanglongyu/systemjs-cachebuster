@@ -57,7 +57,9 @@ Add **system.cachebuster.js** into your HTML. This file patches SystemJS loader 
 ```
 
 Ensure your web server is configured with aggressive caching configuration, change a JavaScript file and refresh the browser while DevTools is closed. 
-The browser should load the latest modified version 
+The browser should load the latest modified version
+ 
+You may take a look at the [sample](https://github.com/oricalvo/systemjs-cachebuster/tree/master/sample) folder which demonstrate how **systemjs-cachebuster** can be configured into an existing SPA
 
 ## License
 
