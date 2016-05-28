@@ -4,14 +4,27 @@
     var loadHashTablePromise = null;
     var baseUrl = "";
     var jsonFileName = "system.cachebuster.json";
-
+    var enableLogs = true;
+    
     initBaseUrl();
     patchSystemLocate();
+    
+    function config(options) {
+        enableLogs = (options.enableLogs===undefined ? true : !!options.enableLogs);
+    }
+
+    function log(message) {
+        if(!enableLogs) {
+            return;
+        }
+
+        log(message);
+    }
 
     function dumpTable() {
-        console.log("SystemJS hash table");
+        log("SystemJS hash table");
         for(var key in hashTable) {
-            console.log("    " + key + ": " + hashTable[key].hash);
+            log("    " + key + ": " + hashTable[key].hash);
         }
     }
 
@@ -35,7 +48,7 @@
 
         return loadHashTablePromise = new Promise(function(resolve, reject) {
             var url = "/" + jsonFileName + "?v=" + new Date().valueOf();
-            console.log("Loading hash table from: " + url);
+            log("Loading hash table from: " + url);
             var oReq = new XMLHttpRequest();
             oReq.open("GET", url);
             oReq.send();
@@ -68,7 +81,7 @@
                         url = url + cacheBuster;
                     }
 
-                    console.log("System.locate: " + url);
+                    log("System.locate: " + url);
                     return url;
                 });
             });
@@ -83,4 +96,8 @@
         var res = (str1.substring(0, str2.length) == str2);
         return res;
     }
+
+    window.SystemJSCacheBuster = {
+        config: config
+    };
 })();
