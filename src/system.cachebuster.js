@@ -18,7 +18,7 @@
             return;
         }
 
-        log(message);
+        console.log(message);
     }
 
     function dumpTable() {
