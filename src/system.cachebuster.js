@@ -4,13 +4,13 @@
     var loadHashTablePromise = null;
     var baseUrl = "";
     var jsonFileName = "system.cachebuster.json";
-    var enableLogs = true;
+    var enableLogs = false;
     
     initBaseUrl();
     patchSystemLocate();
     
     function config(options) {
-        enableLogs = (options.enableLogs===undefined ? true : !!options.enableLogs);
+        enableLogs = (options.enableLogs===undefined ? false : !!options.enableLogs);
     }
 
     function log(message) {
@@ -97,7 +97,7 @@
         return res;
     }
 
-    window.SystemJSCacheBuster = {
+    window.SystemCacheBuster = {
         config: config
     };
 })();

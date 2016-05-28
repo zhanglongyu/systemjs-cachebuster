@@ -12,13 +12,17 @@
             defaultJSExtensions: true,
         });
 
+        SystemCacheBuster.config({
+            enableLogs: true
+        });
+
         System.import("src/module3");
     </script>
 </head>
 <body id="body">
     <h1>systemjs-cachebuster Plugin Sample App</h1>
     <h2>
-        This sample application deomnstrate the caching problem with SystemJS and the way you solve that with the systemjs-cachebuster plugin
+        This sample application demonstrates the caching problem with SystemJS and the way you can solve that with the systemjs-cachebuster plugin
     </h2>
 
     <ol>
@@ -35,11 +39,11 @@
         </li>
 
         <li>
-            Now you should the value
+            Now you should see the value
         </li>
 
         <li>
-            Open browser's dev tools and at the network tab. The systemjs-cahcebuster plugin effects SystemJS XHR requests
+            Open browser's dev tools and look at the network tab. The systemjs-cahcebuster plugin effects SystemJS XHR requests
         </li>
     </ol>
 
