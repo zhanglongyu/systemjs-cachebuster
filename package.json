@@ -1,14 +1,13 @@
 {
   "name": "systemjs-cachebuster",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Patches SystemJS loader with a cache buster query string",
   "main": "src/system.cachebuster.gulp.js",
   "dependencies": {
     "crypto": "^0.0.3",
     "upath": "^0.1.7"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
