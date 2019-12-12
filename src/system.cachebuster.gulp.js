@@ -46,8 +46,17 @@ SystemJSCacheBuster.prototype._processFile = function (file) {
 
 SystemJSCacheBuster.prototype._flushIndex = function() {
     console.log("Writing summary file: " + this.outputFilePath);
-    
-    fs.writeFileSync(this.outputFilePath, JSON.stringify(this.hashes));
+    this.hashes = sortObject(this.hashes);
+
+    fs.writeFileSync(this.outputFilePath, JSON.stringify(this.hashes, undefined, 2).replace(/\n/g, '\r\n'));
+    // fs.writeFileSync(this.outputFilePath, JSON.stringify(this.hashes));
+}
+
+function sortObject(obj) {
+    return Object.keys(obj).sort().reduce(function (result, key) {
+        result[key] = obj[key];
+        return result;
+    }, {});
 }
 
 function FileHashTransform (index, flushIndex) {

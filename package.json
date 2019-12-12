@@ -1,13 +1,15 @@
 {
-  "name": "systemjs-cachebuster",
-  "version": "1.0.13",
+  "name": "teamy-cachebuster",
+  "version": "0.0.2",
   "description": "Patches SystemJS loader with a cache buster query string",
-  "main": "src/system.cachebuster.gulp.js",
+  "main": "dist/system.cachebuster.gulp.js",
   "dependencies": {
-    "crypto": "^0.0.3",
-    "upath": "^0.1.7"
+    "upath": "^1.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
